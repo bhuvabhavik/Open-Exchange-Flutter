@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
@@ -87,38 +87,53 @@ class _HomePageState extends State<HomePage> {
                             ),
                             getSizedBox(15.0, 0),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: TextFormField(
                                 decoration: getInputDecoration("Enter USD : ",
                                     "अमरीकी डालर में प्रवेश करें"),
                               ),
                             ),
-                            getSizedBox(15.0, 0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                DropdownButton(
-                                  borderRadius: BorderRadius.circular(10),
-                                  value: selectedMenu,
-                                  items: getDropDownMenuItems(),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      selectedMenu = value.toString();
-                                    });
-                                  },
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text("Convert"),
-                                  style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.pinkAccent)),
-                                )
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: DropdownButton(
+                                        borderRadius: BorderRadius.circular(10),
+                                        value: selectedMenu,
+                                        items: getDropDownMenuItems(),
+                                        onChanged: (value) {
+                                          setState(() {
+                                            selectedMenu = value.toString();
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ElevatedButton(
+                                      onPressed: () {},
+                                      child: const Text("Convert"),
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.pinkAccent)),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                             getSizedBox(15.0, 0),
-                            const Text("Converted currency will display here"),
+                            const Text(
+                              "Converted currency will display here",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
                             getSizedBox(15.0, 0),
                           ],
                         ),
@@ -127,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaY: 15, sigmaX: 15),
@@ -140,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             getSizedBox(15.0, 0),
-                            Text("Convert Any Currency"),
+                            const Text("Convert Any Currency"),
                             getSizedBox(15.0, 0),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -176,16 +191,30 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-                            getSizedBox(15.0, 0),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text("Convert"),
-                              style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      Colors.pinkAccent)),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                height: 50,
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    "Convert",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.pinkAccent)),
+                                ),
+                              ),
                             ),
-                            getSizedBox(15.0, 0),
-                            Text("Conveted currency will display here"),
+                            getSizedBox(5.0, 0),
+                            const Text(
+                              "Conveted currency will display here",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
                             getSizedBox(15.0, 0),
                           ],
                         ),
